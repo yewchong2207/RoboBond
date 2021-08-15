@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Bond Advisor</title>
+    <link rel="shorcut icon" href="assets/images/logo.jpeg">
+
+    <style>
+        .topnav-centered {
+        float: none;
+        position: absolute;
+        top: 50%; 
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+ 
+    <nav class="navbar sticky-top navbar-light bg-light  text-center" >
+        <a class="navbar-brand" href="home.html">
+            <i class="material-icons nav__icon" style="font-size:36px;" >arrow_back</i>
+        </a> 
+        <div class="topnav-centered">
+            <h2>
+                Goals
+            </h2>
+        </div>
+    </nav>   
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">&nbsp</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8" style="position:absolute; top:70px; left:10px; width:450px; height:450px;"><canvas id="myChart" ></canvas> </div>
+        </div>
+        
+        <div class="col-lg-5 col-xl-4">
+            <div class="card shadow mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h6 class="text-primary font-weight-bold m-0">Revenue Sources</h6>
+                    <a href="addgoal.html">
+                        <span>Set a New Goal ></span>
+                    </a>
+                </div>
+                <div class="card-body">
+
+                   
+                </div>
+            </div>
+        </div>
+
+
+        <nav class="navbar fixed-bottom navbar-light bg-light " style="position:fixed; bottom:0">
+            <div class="container-fluid">
+                <a href="home.html" class="nav__link nav__link--active">
+                    <i class="material-icons nav__icon">home</i>
+                    <span class="nav__text">Home</span>
+                </a>
+                <a href="home.html" class="nav__link">
+                    <i class="material-icons nav__icon">search</i>
+                    <span class="nav__text">Discover</span>
+                </a> 
+                <a href="goal.html" class="nav__link">
+                    <i class="material-icons nav__icon">adjust</i>
+                    <span class="nav__text">Goals</span>
+                </a>
+                <a href="home.html" class="nav__link ">
+                    <div style= "position: relative ; margin-bottom: 0px; max-height: 13px; height: 100%;">
+                        <i class="material-icons nav__icon" style="align-items: center;">email</i>            
+                        <span class="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-danger">
+                        3
+                    </span>
+                    <br>
+                    <br>
+                    </div>
+                    <span class="nav__text ">Mail</span>   
+                </a>
+                <a href="home.html" class="nav__link">
+                    <i class="material-icons nav__icon">more_horiz</i>
+                    <span class="nav__text">More</span>
+                </a>
+            </div>
+        </nav>
+
+    </div>
+
+
+
+
+
+
+    <script>
+        //setup block 
+        const data = {
+            labels: [
+                "Cash",
+                "Bonds"
+            ],
+            datasets: [
+                {
+                data: [300, 100],
+                backgroundColor: [
+                    "#FF6283",
+                    "#FFCC54"
+                ],
+                hoverBackgroundColor: [
+                    "#FF6283",
+                    // "#36A2EB",
+                    "#FFCC54"
+                ]
+                }]
+        };
+        
+        // showtext plugin block 
+        const showtext = {
+            id: 'showtext',
+            beforeDraw(chart,args,options){
+                const {ctx, chartArea: {top,right,bottom,left,width,height}} =chart;
+                ctx.save();
+                ctx.fillStyle = 'blue';
+                ctx.fillRect(200,200,10,10)
+                //x0 = starting point on the horizontal level left/right
+                //y0 = starting point on the horizontal level top/bottom
+                //x1 = length of the shape in pixel horizontal level
+                //y1 = length of the shape in pixel vertical level             
+            }
+        };
+
+        //config block
+        const config = {
+            type: 'doughnut',
+            data,
+            options: {
+                cutoutPercentage:90,
+                animation:{ duration: 0},
+                responsive: false,
+                maintainAspectRatio: false,
+                legend: {
+                display: true,
+                position: 'bottom'
+                }
+            },
+            plugins: [showtext]
+        };
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+
+        );
+        </script>
+
+
+
+
+</body>
+</html>
+
+
+
+

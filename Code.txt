@@ -1,0 +1,397 @@
+indext.html - need some edit , especially add badge 
+
+Now only focus on :
+assets folder
+indext.php
+navBar.css
+
+The page i need to create : 
+Home page(Performance)
+Goals page 
+Add input, risk page 
+
+
+<div class="container-sm">
+    <canvas id="myChart" style="width:300px"></canvas>
+</div>
+
+<script>
+    // counter block
+    const counter = {
+        id: 'counter',
+        beforeDraw(chart,args,options){
+            const {ctx, chartArea: {top, right, bottom, left, width, height}} = chart;
+            ctx.save();
+            ctx.fillStyle = 'blue';
+            ctx.fillReact(x0,y0,x1,y1)
+        }
+    };
+    var xValues = ["Cash", "Equities", "Bonds"];
+    var yValues = [55, 49, 44];
+    var barColors = [
+    "#b91d47",
+    "#00aba9",
+    "#2b5797"
+    ];
+
+    new Chart("myChart", {
+    type: "doughnut",
+    data: {
+        labels: xValues,
+        datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+        }]
+    },
+    options: {
+        cutoutPercentage:80,
+        animation:{
+                duration: 0
+            },
+        title: {
+        display: true,
+        text: ""
+        }
+    }
+    });
+</script>
+
+
+
+///
+<!-- <div class="col-md-6 col-xl-3 mb-4">
+    <div class="card shadow border-left-success py-2">
+        <div class="card-body">
+            <div class="row align-items-center no-gutters">
+                <div class="col mr-2">
+                    <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Earnings (annual)</span></div>
+                    <div class="text-dark font-weight-bold h5 mb-0"><span>$215,000</span></div>
+                </div>
+                <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i></div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container"><a class="navbar-brand logo" href="#">Brand</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+    <script>
+    
+    window.onload=function(){
+        
+        var data = {
+        labels: [
+            "Cash",
+            "Equities",
+            "Bonds"
+        ],
+        datasets: [
+            {
+            data: [300, 50, 100],
+            backgroundColor: [
+                "#FF6283",
+                "#36A2EB",
+                "#FFCC54"
+            ],
+            hoverBackgroundColor: [
+                "#FF6283",
+                "#36A2EB",
+                "#FFCC54"
+            ]
+            }]
+    };
+
+    var promisedDeliveryChart = new Chart(document.getElementById('myChart'), {
+
+        type: 'doughnut',
+        data: data,
+        options: {
+            cutoutPercentage:90,
+            animation:{ duration: 0},
+            responsive: false,
+            maintainAspectRatio: false,
+            legend: {
+            display: true,
+            position: 'bottom'
+            }
+        }
+    });
+
+    Chart.pluginService.register({
+        beforeDraw: function(chart) {
+            var width = chart.chart.width,
+                height = chart.chart.height,
+                ctx = chart.chart.ctx;
+            ctx.restore();
+            var fontSize = 0.5;
+            ctx.font = fontSize + "em sans-serif";
+            ctx.textBaseline = "middle";
+            var text = "Portfolio Value:",
+                textX = Math.round((width - ctx.measureText(text).width) / 4),
+                textY = height / 4;
+            ctx.fillText(text, textX, textY);
+            ctx.save();
+        }
+    });
+    }
+
+    </script>
+
+        <div class="row">
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="card  border-left-primary py-2">
+                    <div class="card-body">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                                <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Earnings (monthly)</span></div>
+                                <div class="text-dark font-weight-bold h5 mb-0"><span>$40,000</span></div>
+                            </div>
+                            <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="card  border-left-success py-2">
+                    <div class="card-body">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                                <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Earnings (annual)</span></div>
+                                <div class="text-dark font-weight-bold h5 mb-0"><span>$215,000</span></div>
+                            </div>
+                            <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="card  border-left-info py-2">
+                    <div class="card-body">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                                <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span>Tasks</span></div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <div class="text-dark font-weight-bold h5 mb-0 mr-3"><span>50%</span></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar bg-info" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"><span class="sr-only">50%</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="card  border-left-warning py-2">
+                    <div class="card-body">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                                <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>Pending Requests</span></div>
+                                <div class="text-dark font-weight-bold h5 mb-0"><span>18</span></div>
+                            </div>
+                            <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<div class="col">
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <div class="card text-white bg-primary shadow">
+                                    <div class="card-body">
+                                        <p class="m-0">Primary</p>
+                                        <p class="text-white-50 small m-0">#4e73df</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card text-white bg-success shadow">
+                                    <div class="card-body">
+                                        <p class="m-0">Success</p>
+                                        <p class="text-white-50 small m-0">#1cc88a</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card text-white bg-info shadow">
+                                    <div class="card-body">
+                                        <p class="m-0">Info</p>
+                                        <p class="text-white-50 small m-0">#36b9cc</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card text-white bg-warning shadow">
+                                    <div class="card-body">
+                                        <p class="m-0">Warning</p>
+                                        <p class="text-white-50 small m-0">#f6c23e</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card text-white bg-danger shadow">
+                                    <div class="card-body">
+                                        <p class="m-0">Danger</p>
+                                        <p class="text-white-50 small m-0">#e74a3b</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card text-white bg-secondary shadow">
+                                    <div class="card-body">
+                                        <p class="m-0">Secondary</p>
+                                        <p class="text-white-50 small m-0">#858796</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+        <div class="col-lg-5 col-xl-4">
+            <div class="card shadow mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h6 class="text-primary font-weight-bold m-0">Revenue Sources</h6>
+                    <a href="addgoal.html">
+                        <span>Switch Portfolio ></span>
+                    </a>
+                </div>
+                <div class="card-body">
+                    
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+
+
+
+<script>
+        //setup block 
+        const data = {
+            labels: [
+                "Cash",
+                "Bonds"
+            ],
+            datasets: [
+                {
+                data: [300, 100],
+                backgroundColor: [
+                    "#FF6283",
+                    "#36A2EB"
+                ],
+                hoverBackgroundColor: [
+                    "#FF6283",
+                    "#36A2EB"
+                ]
+                }]
+        };
+        
+        // showtext plugin block 
+        const showtext = {
+            id: 'showtext',
+            beforeDraw(chart,args,options){
+                const {ctx, chartArea: {top,right,bottom,left,width,height}} =chart;
+                ctx.save();
+                ctx.fillStyle = 'blue';
+                ctx.fillRect(175,175,10,10)
+                //x0 = starting point on the horizontal level left/right
+                //y0 = starting point on the horizontal level top/bottom
+                //x1 = length of the shape in pixel horizontal level
+                //y1 = length of the shape in pixel vertical level             
+            }
+        };
+
+        //config block
+        const config = {
+            type: 'doughnut',
+            data,
+            options: {
+                cutoutPercentage:90,
+                animation:{ duration: 0},
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                display: true,
+                position: 'bottom'
+                }
+            },
+            plugins: [showtext]
+        };
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+
+        );
+        </script>
+        
+
+        <!-- <script>
+            // counter block
+            const counter = {
+                id: 'counter',
+                beforeDraw(chart,args,options){
+                    const {ctx, chartArea: {top, right, bottom, left, width, height}} = chart;
+                    ctx.save();
+                    ctx.fillStyle = 'blue';
+                    ctx.fillReact(200,200,10,10)
+                }
+            };
+            var xValues = ["Cash", "Equities", "Bonds"];
+            var yValues = [55, 49, 44];
+            var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797"
+            ];
+        
+            new Chart("myChart", {
+            type: "doughnut",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                cutoutPercentage:80,
+                animation:{
+                        duration: 0
+                    },
+                title: {
+                display: true,
+                text: ""
+                }
+            }
+            });
+        </script> -->
+
+        

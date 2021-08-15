@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoboBond</title>
+    <link rel="shorcut icon" href="assets/images/logo.jpeg">      
+
+    <!-- Bootstap Set Up -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Others -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        .topnav-centered {
+        float: none;
+        position: absolute;
+        top: 50%; 
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+
+        /* .chartBox{
+            width:350px;
+        } */
+
+
+    </style>  
+    
+</head> 
+<body>
+    
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#">RoboBond</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only"></span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Top Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Withdraw/Transfer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav> 
+
+    <!-- <nav class="navbar sticky-top navbar-light bg-light  text-center" >
+        <a class="navbar-brand" href="home.html">
+            <i class="material-icons nav__icon" style="font-size:36px;" >home</i>
+        </a> 
+        <div class="topnav-centered">
+            <h2>
+                Home
+            </h2>
+        </div>
+    </nav>   -->
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">&nbsp</div>
+        </div> 
+        <div class="row">
+            <div class="col-12">&nbsp</div>
+        </div> 
+        <div class="row">
+            <div class="col-12">&nbsp</div>
+        </div>
+        <div class="row">
+            <div class="col-12">&nbsp</div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-lg-6">
+                <div class="card  mb-6">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary font-weight-bold m-0">Portfolio</h6>
+                        <a href="setPortfolio.html">Set Portfolio ></a>
+                    </div>
+                    <div class="chartBox">
+                        <br>
+                        <canvas id="myChart"></canvas>
+                        <br>
+                    </div>
+                    <div class="card">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Risk Level</th>
+                                    <td>Moderate</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Current Portfolio Value</th>
+                                    <td>RM15000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Starting Portfolio Value</th>
+                                    <td>RM12000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Gains</th>
+                                    <td>RM3000</td>
+                                </tr>
+                                
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-lg-4">
+                <div class="card mb-4">
+                    
+                <div class="d-flex justify-content-around">
+                   <h2>&</h2>
+                    <h2>&</h2>
+                    <h2>&</h2> 
+                    <a class="nav__link">
+                        <i class="material-icons nav__icon">adjust</i>
+                        <span class="nav__text">Goals</span>
+                    </a>
+                    <p>&nbsp;</p>
+                    <a  class="nav__link">
+                        <i class="material-icons nav__icon">adjust</i>
+                        <span class="nav__text">Goals</span>
+                    </a>
+
+
+                </div>
+                </div>
+            </div> -->
+        </div>
+
+        
+        <script>
+            var xValues = ["Cash", "Bonds"];
+            var yValues = [5000,10000];
+            var barColors = [
+            "#b91d47",
+            "#00aba9"
+            ];
+        
+            new Chart("myChart", {
+            type: "doughnut",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+            cutoutPercentage:80,
+            animation:{ duration: 0},
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+            display: true,
+            position: 'bottom'
+            }
+        }
+            });
+        </script>
+        <br>
+        <div class="row row justify-content-md-center">
+
+            <div class="col-lg-6">
+                <div class="card mb-6">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary font-weight-bold m-0">Top 5 Recommended Bonds</h6>
+                    </div>
+
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel-body">
+                                    <br>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <!-- <th scope="col">Name</th> -->
+                                                <th scope="col">Code</th>
+                                                <!-- <th scope="col">Rating</th>
+                                                <th scope="col">Coupon Rate</th> -->
+                                                <th scope="col">Returns</th>
+                                                <th scope="col">Volality</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td><a href="bondDetails.html">MO110001</a></td>
+                                                <td>5000</td>
+                                                <td>0.5</td>
+                                            </tr>
+                                            <tr> 
+                                                <th scope="row">2</th>
+                                                <td><a href="#">ML140003</a></td>
+                                                <td>4500</td>
+                                                <td>0.5</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td><a href="#">MJ160004</a></td>
+                                                <td>4300</td>
+                                                <td>0.5</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td><a href="#">MI1700011</a></td>
+                                                <td>4000</td>
+                                                <td>0.5</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td><a href="#">MO120001</a></td>
+                                                <td>3000</td>
+                                                <td>0.5</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- <div class="col-lg-6 ">
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary font-weight-bold m-0">Bonds</h6>
+                    </div>
+                    <div class="container">
+                        
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+
+
+    
+        <br>
+        <br>
+        <br>
+        <nav class="navbar fixed-bottom navbar-light bg-light " style="position:fixed; bottom:0">
+            <div class="container-fluid">
+                <a href="home.html" class="nav__link nav__link--active">
+                    <i class="material-icons nav__icon">home</i>
+                    <span class="nav__text">Home</span>
+                </a>
+                <a href="home.html" class="nav__link">
+                    <i class="material-icons nav__icon">search</i>
+                    <span class="nav__text">Discover</span>
+                </a> 
+                <a href="goal.html" class="nav__link">
+                    <i class="material-icons nav__icon">adjust</i>
+                    <span class="nav__text">Goals</span>
+                </a>
+                <a href="home.html" class="nav__link ">
+                    <!-- <div style= "position: relative ; margin-bottom: 0px; max-height: 13px; height: 100%;"> -->
+                        <i class="material-icons nav__icon" style="align-items: center;">email</i>            
+                        <!-- <span class="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-danger">
+                        3
+                    </span> -->
+                    <!-- </div> -->
+                    <span class="nav__text">Mail</span>   
+                </a>
+                <a href="home.html" class="nav__link">
+                    <i class="material-icons nav__icon">more_horiz</i>
+                    <span class="nav__text">More</span>
+                </a>
+            </div>
+        </nav>
+
+    </div>
+
+
+</body>
+</html>
+
+
+
+
